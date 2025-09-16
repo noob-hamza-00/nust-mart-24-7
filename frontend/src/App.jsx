@@ -18,6 +18,7 @@ export default function App() {
           <li key={item.id}>{item.name} <em>({item.category})</em></li>
         ))}
       </ul>
+      <p style={{color: 'gray', fontSize: 14}}>DAR K AGY BHOOT, APNY BUSINESS KI MAA KI CHOOOOOOOT...yayyyyyy</p>
   {/* Info line removed as requested */}
       <a
         href="https://wa.me/923169626873"
