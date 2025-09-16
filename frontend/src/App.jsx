@@ -18,7 +18,7 @@ export default function App() {
           <li key={item.id}>{item.name} <em>({item.category})</em></li>
         ))}
       </ul>
-      <p style={{color: 'gray', fontSize: 14}}>This is a public, read-only list. To allow live adding/editing, a backend is required.</p>
+  {/* Info line removed as requested */}
       <a
         href="https://wa.me/923169626873"
         target="_blank"
