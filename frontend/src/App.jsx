@@ -1,24 +1,54 @@
 import React, { useState } from 'react';
+import './App.css';
 
-// Static items list for public view only
+// Updated items list with images and prices
 const staticItems = [
-  { id: 1, name: 'Milk', category: 'grocery' },
-  { id: 2, name: 'Chips', category: 'snacks' },
-  { id: 3, name: 'Banana', category: 'fruits' },
-  // Add more items as needed
+  { id: 1, name: 'Murree Brewery Drink Lemon Malt Can 250 ML', price: 'Rs.80', img: 'https://i.imgur.com/1.png' },
+  { id: 2, name: 'Gatorade Drink Tropical Fruit Bottle 500 ML', price: 'Rs.100', img: 'https://i.imgur.com/2.png' },
+  { id: 3, name: 'Taste of Nature Fruti Mango Juice Glass Bottle', price: 'Rs.1,680', img: 'https://i.imgur.com/3.png' },
+  { id: 4, name: 'Dayfresh Flavoured Milk Belgian Chocolate 225ML', price: 'Rs.1,680', img: 'https://i.imgur.com/4.png' },
+  { id: 5, name: 'Dayfresh Flavoured Milk Nutelicious Hazelnut', price: 'Rs.140', img: 'https://i.imgur.com/5.png' },
+  { id: 6, name: 'Murree Brewery Malt 79 Tin 250 ML', price: 'Rs.80', img: 'https://i.imgur.com/6.png' },
+  { id: 7, name: 'Cindy Carbonated Malt Drink', price: 'Rs.80', img: 'https://i.imgur.com/7.png' },
+  { id: 8, name: 'Coca Cola Local Tin 250 ML', price: 'Rs.105', img: 'https://i.imgur.com/8.png' },
+  { id: 9, name: 'Coca Cola Local Can 250 ML – Carton', price: 'Rs.1,260', img: 'https://i.imgur.com/9.png' },
+  { id: 10, name: 'Coke Zero Slim Tin 250 ML', price: 'Rs.105', img: 'https://i.imgur.com/10.png' },
+  // ...add more items as needed, using real image URLs
 ];
 
 export default function App() {
   const [items] = useState(staticItems);
   return (
-    <div style={{ maxWidth: 500, margin: '2rem auto', fontFamily: 'sans-serif', textAlign: 'center' }}>
-      <h1>Daily Items List (Read Only)</h1>
-      <ul style={{ textAlign: 'left', display: 'inline-block' }}>
+    <div style={{ maxWidth: 1200, margin: '2rem auto', fontFamily: 'sans-serif', textAlign: 'center' }}>
+      <h1 style={{ fontSize: 36, fontWeight: 700, marginBottom: 32 }}>Nust Mart Drinks & Juices</h1>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+        gap: 24,
+        justifyItems: 'center',
+        marginBottom: 40,
+      }}>
         {items.map(item => (
-          <li key={item.id}>{item.name} <em>({item.category})</em></li>
+          <div key={item.id} className="item-card" style={{
+            background: '#fff',
+            borderRadius: 12,
+            boxShadow: '0 2px 12px #0001',
+            padding: 18,
+            width: 220,
+            transition: 'transform 0.2s',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+            <img src={item.img} alt={item.name} style={{ width: '100%', height: 140, objectFit: 'contain', marginBottom: 12, borderRadius: 8 }} />
+            <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 6 }}>{item.name}</div>
+            <div style={{ color: '#25D366', fontWeight: 600, fontSize: 15, marginBottom: 8 }}>{item.price}</div>
+            <div style={{ position: 'absolute', bottom: 16, right: 16 }}>
+              <span style={{ background: '#25D366', color: 'white', borderRadius: '50%', width: 32, height: 32, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>+</span>
+            </div>
+          </div>
         ))}
-      </ul>
-      <p style={{color: 'gray', fontSize: 14}}>This is a public, read-only list. To allow live adding/editing, a backend is required.</p>
+      </div>
       <a
         href="https://wa.me/c/923169626873"
         target="_blank"

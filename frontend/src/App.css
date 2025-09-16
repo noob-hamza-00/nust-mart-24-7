@@ -1,0 +1,21 @@
+/* Simple fade-in animation for item cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item-card {
+  animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.item-card:hover {
+  box-shadow: 0 8px 32px #25d36633;
+  transform: translateY(-6px) scale(1.04);
+}
